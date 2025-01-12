@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export const Home = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && password.length >= 8) {
-      console.log('Login data:', { email, password });
-      navigate('/hall');
+      console.log("Login data:", { email, password });
+      navigate("/hall");
     } else {
-      setError('Por favor ingrese datos válidos.');
+      setError("Por favor ingrese datos válidos.");
     }
   };
 
   return (
     <div className="min-h-screen bg-[#FDF6E3] flex items-center justify-center">
       <div className="w-80 bg-[#002B36] p-6 rounded shadow-lg">
-        <h1 className="text-2xl font-bold text-[#FDF6E3] text-center mb-6">Museo Virtual</h1>
+        <h1 className="text-2xl font-bold text-[#FDF6E3] text-center mb-6">
+          Museo Virtual
+        </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-[#FDF6E3] text-sm font-medium mb-1">
+            <label
+              htmlFor="email"
+              className="block text-[#FDF6E3] text-sm font-medium mb-1"
+            >
               Email
             </label>
             <input
@@ -36,7 +41,10 @@ const Login = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-[#FDF6E3] text-sm font-medium mb-1">
+            <label
+              htmlFor="password"
+              className="block text-[#FDF6E3] text-sm font-medium mb-1"
+            >
               Contraseña
             </label>
             <input
@@ -60,5 +68,3 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;
