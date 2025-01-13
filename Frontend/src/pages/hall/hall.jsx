@@ -17,9 +17,36 @@ export const Hall = () => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col items-center justify-center space-y-6">
+      <div className="flex-1 flex flex-col items-center justify-center space-y-8">
         <h2 className="text-3xl font-bold text-[#173044]">Bienvenido</h2>
-        <div className="w-full max-w-3xl grid grid-cols-3 gap-4">
+
+        {/* Search Bar */}
+        <div className="flex items-center space-x-2 bg-[#F1E4EB] px-4 py-2 rounded shadow-lg">
+          <input
+            type="text"
+            placeholder="Buscar..."
+            className="bg-[#F1E4EB] text-[#173044] placeholder-[#94A1B2] focus:outline-none"
+          />
+          <button className="text-[#013220] focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Buttons */}
+        <div className="grid grid-cols-2 gap-6 max-w-lg">
           <button
             className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
             onClick={() => navigate("/int-galleries")}
@@ -33,7 +60,7 @@ export const Hall = () => {
             Galeria Nacional
           </button>
           <button
-            className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+            className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A] col-span-2"
             onClick={() => navigate("/my-space")}
           >
             Mi Espacio
