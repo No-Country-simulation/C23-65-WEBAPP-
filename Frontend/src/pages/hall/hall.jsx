@@ -21,7 +21,7 @@ export const Hall = () => {
         <h2 className="text-3xl font-bold text-[#173044]">Bienvenido</h2>
 
         {/* Search Bar */}
-        <div className="flex items-center space-x-2 bg-[#F1E4EB] px-4 py-2 rounded shadow-lg">
+        <div className="flex items-center space-x-2 bg-[#F1E4EB] px-4 py-2 rounded shadow-lg mb-8">
           <input
             type="text"
             placeholder="Buscar..."
@@ -46,37 +46,48 @@ export const Hall = () => {
         </div>
 
         {/* Buttons */}
-        <div className="grid grid-cols-2 gap-6 max-w-lg">
-          <button
-            className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
-            onClick={() => navigate("/int-galleries")}
-          >
-            Galerias internacionales
-          </button>
-          <button
-            className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
-            onClick={() => navigate("/national-gallery")}
-          >
-            Galeria Nacional
-          </button>
-          <button
-            className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A] col-span-2"
-            onClick={() => navigate("/my-space")}
-          >
-            Mi Espacio
-          </button>
-          <button
-            className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
-            onClick={() => navigate("/int-archaeo")}
-          >
-            Arqueologia Internacional
-          </button>
-          <button
-            className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
-            onClick={() => navigate("/national-archaeo")}
-          >
-            Arqueologia Nacional
-          </button>
+        <div className="grid grid-cols-3 gap-6 max-w-3xl">
+          {/* Left Column */}
+          <div className="flex flex-col items-center space-y-6">
+            <button
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              onClick={() => navigate("/int-galleries")}
+            >
+              Galerias internacionales
+            </button>
+            <button
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              onClick={() => navigate("/int-archaeo")}
+            >
+              Arqueologia Internacional
+            </button>
+          </div>
+
+          {/* Middle Column */}
+          <div className="flex items-center justify-center">
+            <button
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              onClick={() => navigate("/my-space")}
+            >
+              Mi Espacio
+            </button>
+          </div>
+
+          {/* Right Column */}
+          <div className="flex flex-col items-center space-y-6">
+            <button
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              onClick={() => navigate("/national-gallery")}
+            >
+              Galeria Nacional
+            </button>
+            <button
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              onClick={() => navigate("/national-archaeo")}
+            >
+              Arqueologia Nacional
+            </button>
+          </div>
         </div>
       </div>
     </div>
