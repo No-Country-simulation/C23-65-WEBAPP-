@@ -18,7 +18,7 @@ export const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F0EAD6] flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-[#F0EAD6] flex flex-col items-center justify-center w-full h-full">
       <h1 className="text-4xl font-bold text-[#173044] mb-8">
         Museo Virtual
       </h1>
@@ -72,4 +72,5 @@ export const Home = () => {
     </div>
   );
 };
+
 
