@@ -50,13 +50,14 @@ export const Hall = () => {
           {/* Left Column */}
           <div className="flex flex-col items-center space-y-6">
             <button
-              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 w-full rounded shadow hover:bg-[#011E1A]"
               onClick={() => navigate("/int-galleries")}
             >
               Galerias internacionales
             </button>
+            <div className="h-6"></div> {/* Empty space */}
             <button
-              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 w-full rounded shadow hover:bg-[#011E1A]"
               onClick={() => navigate("/int-archaeo")}
             >
               Arqueologia Internacional
@@ -66,7 +67,7 @@ export const Hall = () => {
           {/* Middle Column */}
           <div className="flex items-center justify-center">
             <button
-              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 w-full rounded shadow hover:bg-[#011E1A]"
               onClick={() => navigate("/my-space")}
             >
               Mi Espacio
@@ -76,13 +77,14 @@ export const Hall = () => {
           {/* Right Column */}
           <div className="flex flex-col items-center space-y-6">
             <button
-              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 w-full rounded shadow hover:bg-[#011E1A]"
               onClick={() => navigate("/national-gallery")}
             >
               Galeria Nacional
             </button>
+            <div className="h-6"></div> {/* Empty space */}
             <button
-              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 rounded shadow hover:bg-[#011E1A]"
+              className="bg-[#013220] text-[#F1E4EB] py-4 px-6 w-full rounded shadow hover:bg-[#011E1A]"
               onClick={() => navigate("/national-archaeo")}
             >
               Arqueologia Nacional
