@@ -18,53 +18,58 @@ export const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF6E3] flex items-center justify-center">
-      <div className="w-80 bg-[#002B36] p-6 rounded shadow-lg">
-        <h1 className="text-2xl font-bold text-[#FDF6E3] text-center mb-6">
-          Museo Virtual
-        </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-[#FDF6E3] text-sm font-medium mb-1"
-            >
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-[#FDF6E3] rounded bg-[#FDF6E3] text-[#002B36] focus:outline-none focus:ring focus:ring-[#2CB67D]"
-              required
-            />
+    <div className="min-h-screen bg-[#F0EAD6] flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-bold text-[#173044] mb-8">
+        Museo Virtual
+      </h1>
+      <div className="w-[360px] h-[500px] bg-[#013220] p-6 rounded shadow-lg flex flex-col justify-center">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="flex space-x-4">
+            <div className="flex-1">
+              <label
+                htmlFor="email"
+                className="block text-[#F1E4EB] text-sm font-medium mb-1"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3 py-2 border border-[#F1E4EB] rounded bg-[#F1E4EB] text-[#013220] focus:outline-none focus:ring focus:ring-[#2CB67D]"
+                required
+              />
+            </div>
+            <div className="flex-1">
+              <label
+                htmlFor="password"
+                className="block text-[#F1E4EB] text-sm font-medium mb-1"
+              >
+                Contraseña
+              </label>
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-3 py-2 border border-[#F1E4EB] rounded bg-[#F1E4EB] text-[#013220] focus:outline-none focus:ring focus:ring-[#2CB67D]"
+                required
+              />
+            </div>
           </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-[#FDF6E3] text-sm font-medium mb-1"
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="px-6 py-2 bg-[#B87333] text-[#F1E4EB] font-bold rounded hover:bg-[#A65E2E] focus:outline-none focus:ring focus:ring-[#B87333]"
             >
-              Contraseña
-            </label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-[#FDF6E3] rounded bg-[#FDF6E3] text-[#002B36] focus:outline-none focus:ring focus:ring-[#2CB67D]"
-              required
-            />
+              Login
+            </button>
           </div>
-          {error && <p className="text-red-500 text-sm">{error}</p>}
-          <button
-            type="submit"
-            className="w-full py-2 bg-[#A76F50] text-[#FDF6E3] font-bold rounded hover:bg-[#8C583C] focus:outline-none focus:ring focus:ring-[#A76F50]"
-          >
-            Login
-          </button>
         </form>
       </div>
     </div>
   );
 };
+
