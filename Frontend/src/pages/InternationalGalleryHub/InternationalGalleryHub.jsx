@@ -1,4 +1,4 @@
-import Accordion from "../../components/Accordion/Accordion";
+import { Accordion } from "../../components/Accordion/Accordion";
 import { Carousel } from "../../components/Carousel/Carousel";
 import { Novelty } from "../../components/Novelty/Novelty";
 
@@ -57,6 +57,34 @@ export const InternationalGalleryHub = () => {
       />
     )
   );
+  const sections = [
+    {
+      title: "Section 1",
+      links: [
+        { tag: "Link 1", href: "#" },
+        { tag: "Link 2", href: "#" },
+        { tag: "Link 3", href: "#" },
+      ],
+    },
+
+    {
+      title: "Section 2",
+      links: [
+        { tag: "Link 4", href: "#" },
+        { tag: "Link 5", href: "#" },
+        { tag: "Link 6", href: "#" },
+      ],
+    },
+
+    {
+      title: "Section 3",
+      links: [
+        { tag: "Link 7", href: "#" },
+        { tag: "Link 8", href: "#" },
+        { tag: "Link 9", href: "#" },
+      ],
+    },
+  ];
 
   return (
     <div className="flex flex-col h-screen items-center bg-background-page p-10">
@@ -73,7 +101,7 @@ export const InternationalGalleryHub = () => {
       </div>
       <div className="flex flex-col items-start w-2/3 my-6">
         <h2 className="text-text-secondary font-semibold text-xl">Galerías</h2>
-        <Accordion />
+        <Accordion section={sections} />
       </div>
     </div>
   );
