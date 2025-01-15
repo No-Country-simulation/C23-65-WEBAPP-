@@ -1,7 +1,8 @@
-import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { Home } from "./pages/home/home";
 import { Hall } from "./pages/hall/Hall";
+import { InternationalGalleryHub } from "./pages/InternationalGalleryHub/InternationalGalleryHub";
+import { Gallery } from "./pages/Gallery/Gallery";
 
 function App() {
   return (
@@ -10,6 +11,12 @@ function App() {
         <Routes>
           <Route index path="/login" element={<Home />} />
           <Route path="/hall" element={<Hall />} />
+          {/* <Route path="/hall" element={<Hall />} /> */}
+          <Route
+            path="/galeria-internacional"
+            element={<InternationalGalleryHub />}
+          />
+          <Route path="/galeria" element={<Gallery />} />
         </Routes>
       </BrowserRouter>
     </>

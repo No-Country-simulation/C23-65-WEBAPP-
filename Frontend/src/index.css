@@ -1,3 +1,6 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,6 +22,7 @@
 
 body {
   margin: 0;
+  background-color: #f0ead6;
   box-sizing: border-box;
   min-height: 100vh;
 }
