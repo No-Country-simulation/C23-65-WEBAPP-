@@ -9,14 +9,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route index element={<Home />} />
           <Route index path="/login" element={<Home />} />
           <Route path="/hall" element={<Hall />} />
           {/* <Route path="/hall" element={<Hall />} /> */}
-          <Route
-            path="/galeria-internacional"
-            element={<InternationalGalleryHub />}
-          />
-          <Route path="/galeria" element={<Gallery />} />
+          <Route path="/int-galleries" element={<InternationalGalleryHub />} />
+          <Route path="/national-gallery" element={<Gallery />} />
         </Routes>
       </BrowserRouter>
     </>

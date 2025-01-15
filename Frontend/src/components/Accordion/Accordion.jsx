@@ -38,24 +38,6 @@ export const Accordion = ({ section }) => {
           </div>
         </div>
       ))}
-      {/* <div className="accordion-item">
-        <button
-          className="accordion-header w-full text-left bg-gray-200 p-4 border-b border-gray-300 hover:bg-gray-300 transition-colors duration-300"
-          onClick={() => handleClick(0)}
-        >
-          Sección 1
-        </button>
-        <div
-          className={`accordion-content overflow-hidden transition-all duration-200 ease-linear ${
-            activeIndex === 0 ? "max-h-96 py-2" : "max-h-0 p-0"
-          }`}
-        >
-          <p>
-            Este es el contenido de la sección 1. Puede ser texto o cualquier
-            otro contenido.
-          </p>
-        </div>
-      </div> */}
     </div>
   );
 };
