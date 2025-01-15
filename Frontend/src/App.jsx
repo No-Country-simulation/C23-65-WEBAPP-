@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import { Home } from "./pages/home/home";
 import { InternationalGalleryHub } from "./pages/InternationalGalleryHub/InternationalGalleryHub";
+import { Gallery } from "./pages/Gallery/Gallery";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             path="/galeria-internacional"
             element={<InternationalGalleryHub />}
           />
+          <Route path="/galeria" element={<Gallery />} />
         </Routes>
       </BrowserRouter>
     </>
