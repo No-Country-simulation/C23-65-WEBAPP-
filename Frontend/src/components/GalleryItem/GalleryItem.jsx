@@ -5,7 +5,7 @@ export const GalleryItem = ({ onOpen }) => {
     <div className="w-full flex flex-col">
       <div className="w-full flex justify-center">
         <img
-          src="https://media.admagazine.com/photos/618a7dbc58ac69e38abb6c2c/16:9/w_1280,c_limit/43884.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
           alt="noche"
           className="w-4/5 object-contain"
           onClick={onOpen} // Llamamos a onOpen desde las props

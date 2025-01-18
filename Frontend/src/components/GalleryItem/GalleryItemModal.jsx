@@ -9,11 +9,11 @@ export const GalleryItemModal = ({ open, onClose }) => {
       onClose={onClose}
       className="flex flex-col items-center justify-center gap-4"
     >
-      <div className="bg-background-page p-6 rounded-lg shadow-md w-[60vw] h-auto flex flex-col border-none">
-        <TransformWrapper>
+      <div className="p-0 rounded-lg shadow-md w-[60vw] h-auto flex flex-col border-none">
+        <TransformWrapper limitToBounds={false}>
           <TransformComponent>
             <img
-              src="https://media.admagazine.com/photos/618a7dbc58ac69e38abb6c2c/16:9/w_1280,c_limit/43884.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
               alt="noche"
               className="w-[60vw] object-contain"
             />
