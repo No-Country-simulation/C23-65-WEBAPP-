@@ -34,7 +34,7 @@ export const Profile = () => {
           }}
         >
           <div style={{ padding: "10px" }}>
-            {["Galeria personal1", "Galeria personal2", "Galeria personal3", "Galeria personal4"].map((item, index) => (
+            {["Galeria personal1", "Galeria personal2", "Galeria personal3", "Galeria personal4", "Galeria personal5", "Galeria personal6"].map((item, index) => (
               <div
                 key={index}
                 style={{
