@@ -1,35 +1,45 @@
 import PropTypes from "prop-types";
 
-export const GalleryItem = ({ onOpen }) => {
+export const GalleryItem = ({
+  onOpen,
+  selectImageToZoom,
+  name,
+  imageURL,
+  author,
+  dimensions,
+  medium,
+  style,
+  genre,
+  description,
+}) => {
   return (
     <div className="w-full flex flex-col">
       <div className="w-full flex justify-center">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
-          alt="noche"
-          className="w-4/5 object-contain"
-          onClick={onOpen} // Llamamos a onOpen desde las props
+          // src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+          src={imageURL}
+          alt={name}
+          className="w-4/5 object-contain max-h-[50rem]"
+          onClick={() => {
+            onOpen();
+            selectImageToZoom(imageURL);
+          }}
         />
       </div>
 
       <h2 className="text-text-secondary text-xl font-semibold ml-14 my-4">
-        La noche estrellada -1820
+        {name}
       </h2>
       <div className="flex flex-row justify-evenly mb-6 text-text-secondary">
         <div className="w-2/5">
-          <p>Autor: Vicent</p>
-          <p>Medidas: 120cm x 120cm</p>
-          <p>Medio: Oleaje sobre tela</p>
-          <p>Estilo: Impresionismo</p>
-          <p>Género: Paisajismo</p>
+          <p>Autor: {author} </p>
+          <p>Medidas: {dimensions} </p>
+          <p>Medio: {medium} </p>
+          <p>Estilo: {style} </p>
+          <p>Género: {genre} </p>
         </div>
         <div className="w-2/5">
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using Content here, cont
-          </p>
+          <p>{description}</p>
         </div>
       </div>
     </div>
@@ -37,4 +47,13 @@ export const GalleryItem = ({ onOpen }) => {
 };
 GalleryItem.propTypes = {
   onOpen: PropTypes.func.isRequired,
+  selectImageToZoom: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  imageURL: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  dimensions: PropTypes.string.isRequired,
+  medium: PropTypes.string.isRequired,
+  style: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
