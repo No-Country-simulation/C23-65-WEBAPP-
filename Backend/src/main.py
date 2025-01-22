@@ -1,10 +1,14 @@
 from fastapi import FastAPI
 import uvicorn
-from Backend.src.routers.router import routersApp
+from src.routers.upload_routes import router as upload_router
+from src.routers.archepiece_routes import router as archepiece_router
 
-mainApp = FastAPI()
+# Inicializar FastAPI
+app = FastAPI()
 
-mainApp.include_router(routersApp)
+# Incluir las rutas
+app.include_router(upload_router, prefix="/api/uploads", tags=["Uploads"])
+app.include_router(archepiece_router, prefix="/api/archepieces", tags=["Archepieces"])
 
 if __name__ == "__main__":
-    uvicorn.run(mainApp, host="0.0.0.0", port=8000) #// command: uvicorn Backend.src.main:mainApp --reload
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
