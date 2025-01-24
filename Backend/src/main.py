@@ -1,7 +1,8 @@
 from fastapi import FastAPI
+from routers.user import user
+
 
 app = FastAPI()
 
-@app.get('/')
-def hellworld():
- return "Hola mundo"
+
+app.include_router(user)
