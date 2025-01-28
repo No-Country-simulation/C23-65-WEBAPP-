@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from models.pydantic_models import ArtpieceCreate, ArtpieceInDB
 from models.mysql_models import Artpiece as ArtpieceDB
-from db.mysql import get_mysql_db  # Función para obtener la conexión de MySQL
+from db.mysql import get_mysql_db
 
 router = APIRouter()
 

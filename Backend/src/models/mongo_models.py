@@ -12,7 +12,7 @@ class GalleryArtpieceInDB(BaseModel):
 
     @classmethod
     def from_mongo(cls, mongo_data: dict):
-        mongo_data["id"] = str(mongo_data["_id"])  # Convertir ObjectId a string
+        mongo_data["id"] = str(mongo_data["_id"])
         del mongo_data["_id"]
         return cls(**mongo_data)
 

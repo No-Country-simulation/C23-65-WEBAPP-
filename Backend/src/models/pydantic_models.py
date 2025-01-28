@@ -1,37 +1,31 @@
 from pydantic import BaseModel, EmailStr, constr
 from datetime import datetime
 from typing import Optional, List
+from pydantic.config import ConfigDict
 
 # MongoDB Models
-# Modelo de GalleryArtpiece
 class GalleryArtpieceInDB(BaseModel):
     id: str
     gallery_id: str
     artpiece_id: str
     note: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de ArtpieceStyles
 class ArtpieceStylesInDB(BaseModel):
     id: str
     style_id: str
     artpiece_id: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de ArtpieceGenres
 class ArtpieceGenresInDB(BaseModel):
     id: str
     artpiece_id: str
     genre_id: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de PieceImg
 class PieceImgInDB(BaseModel):
     id: str
     file: str
@@ -39,19 +33,15 @@ class PieceImgInDB(BaseModel):
     archeopiece_id: str
     artpiece_id: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de ProfileFollowing
 class ProfileFollowingInDB(BaseModel):
     id: str
     from_profile_id: str
     to_profile_id: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Archeopiece
 class ArcheopieceInDB(BaseModel):
     id: str
     name: str
@@ -65,11 +55,9 @@ class ArcheopieceInDB(BaseModel):
     current_location: str
     culture_period_id: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 # MySQL Models
-# Modelo de User
 class UserBase(BaseModel):
     name: str
     email: EmailStr
@@ -81,11 +69,8 @@ class UserCreate(UserBase):
 class UserInDB(UserBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-
-# Modelo de Profile
 class ProfileBase(BaseModel):
     bio: Optional[str] = None
     profile_picture: Optional[str] = None
@@ -97,22 +82,18 @@ class ProfileInDB(ProfileBase):
     id: int
     user_id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class ProfileResponse(ProfileInDB):
-    user: UserInDB  # Incluye información del usuario asociado al perfil
+    user: UserInDB
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class UserResponse(UserInDB):
-    profile: Optional[ProfileInDB] = None  # Información del perfil asociado al usuario
+    profile: Optional[ProfileInDB] = None
 
-    class Config:
-        orm_mode = True
-        
-# Modelo de Gallery
+    model_config = ConfigDict(from_attributes=True)
+
 class GalleryBase(BaseModel):
     image_url: str
     description: Optional[str] = None
@@ -125,10 +106,8 @@ class GalleryInDB(GalleryBase):
     created_at: datetime
     owner_id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Artpiece
 class ArtpieceBase(BaseModel):
     image_url: Optional[str] = None
     year: Optional[int] = None
@@ -143,10 +122,8 @@ class ArtpieceInDB(ArtpieceBase):
     author_id: int
     medium_id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Author
 class AuthorBase(BaseModel):
     name: str
     birth_date: Optional[datetime] = None
@@ -159,10 +136,8 @@ class AuthorCreate(AuthorBase):
 class AuthorInDB(AuthorBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Genre
 class GenreBase(BaseModel):
     name: str
 
@@ -172,10 +147,8 @@ class GenreCreate(GenreBase):
 class GenreInDB(GenreBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Style
 class StyleBase(BaseModel):
     name: str
 
@@ -185,10 +158,8 @@ class StyleCreate(StyleBase):
 class StyleInDB(StyleBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Medium
 class MediumBase(BaseModel):
     name: str
 
@@ -198,10 +169,8 @@ class MediumCreate(MediumBase):
 class MediumInDB(MediumBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de CulturePeriod
 class CulturePeriodBase(BaseModel):
     name: str
 
@@ -211,15 +180,13 @@ class CulturePeriodCreate(CulturePeriodBase):
 class CulturePeriodInDB(CulturePeriodBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Favorite
 class FavoriteBase(BaseModel):
     created_at: datetime
 
 class FavoriteCreate(FavoriteBase):
-    archeopiece_id: str  # Usar String para MongoDB ID
+    archeopiece_id: str
     artpiece_id: int
     gallery_id: int
     user_id: int
@@ -228,10 +195,8 @@ class FavoriteInDB(FavoriteBase):
     id: int
     created_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Like
 class LikeBase(BaseModel):
     created_at: datetime
 
@@ -242,10 +207,8 @@ class LikeCreate(LikeBase):
 class LikeInDB(LikeBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
-# Modelo de Comment
 class CommentBase(BaseModel):
     content: str
     created_at: datetime
@@ -257,5 +220,4 @@ class CommentCreate(CommentBase):
 class CommentInDB(CommentBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

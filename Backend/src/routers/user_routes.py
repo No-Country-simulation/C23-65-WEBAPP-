@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from models.mysql_models import User
 from db.mysql import get_mysql_db
 from pydantic import BaseModel
-from passlib.context import CryptContext  # Para encriptar contraseñas
+from passlib.context import CryptContext
 
 router = APIRouter()
 
@@ -25,13 +25,13 @@ def hash_password(password: str):
     return pwd_context.hash(password)
 
 # Obtener todos los usuarios
-@router.get("/users/", response_model=list[UserResponse])
+@router.get("/", response_model=list[UserResponse])
 async def get_users(db: Session = Depends(get_mysql_db)):
     users = db.query(User).all()
     return users
 
 # Obtener un usuario por ID
-@router.get("/users/{id}", response_model=UserResponse)
+@router.get("/{id}", response_model=UserResponse)
 async def get_user(id: int, db: Session = Depends(get_mysql_db)):
     user = db.query(User).filter(User.id == id).first()
     if not user:
@@ -39,7 +39,7 @@ async def get_user(id: int, db: Session = Depends(get_mysql_db)):
     return user
 
 # Crear un nuevo usuario
-@router.post("/users/", response_model=UserResponse)
+@router.post("/", response_model=UserResponse)
 async def create_user(user: UserCreate, db: Session = Depends(get_mysql_db)):
     db_user = db.query(User).filter(User.email == user.email).first()
     if db_user:
@@ -52,7 +52,7 @@ async def create_user(user: UserCreate, db: Session = Depends(get_mysql_db)):
     return new_user
 
 # Actualizar un usuario
-@router.put("/users/{id}", response_model=UserResponse)
+@router.put("/{id}", response_model=UserResponse)
 async def update_user(id: int, user: UserCreate, db: Session = Depends(get_mysql_db)):
     db_user = db.query(User).filter(User.id == id).first()
     if not db_user:
@@ -72,7 +72,7 @@ async def update_user(id: int, user: UserCreate, db: Session = Depends(get_mysql
     return db_user
 
 # Eliminar un usuario
-@router.delete("/users/{id}", response_model=UserResponse)
+@router.delete("/{id}", response_model=UserResponse)
 async def delete_user(id: int, db: Session = Depends(get_mysql_db)):
     db_user = db.query(User).filter(User.id == id).first()
     if not db_user:
