@@ -11,6 +11,31 @@ def create_artpiece(db: Session, artpiece_data: dict):
 def get_artpiece(db: Session, artpiece_id: int):
     return db.query(Artpiece).filter(Artpiece.id == artpiece_id).first()
 
+from sqlalchemy.orm import Session
+from sqlalchemy.exc import SQLAlchemyError
+
+def get_all_artpiece(
+    db: Session,
+    skip: int = 0,
+    limit: int = 100,
+    filter_by: dict = None,
+    order_by: str = None
+):
+    try:
+        query = db.query(Artpiece)
+
+        if filter_by:
+            query = query.filter_by(**filter_by)
+
+        if order_by:
+            query = query.order_by(order_by)
+
+        return query.offset(skip).limit(limit).all()
+
+    except SQLAlchemyError as e:
+        print(f"Error al obtener artpieces: {e}")
+        return []
+
 def update_artpiece(db: Session, artpiece_id: int, artpiece_data: dict):
     artpiece = db.query(Artpiece).filter(Artpiece.id == artpiece_id).first()
     if artpiece:

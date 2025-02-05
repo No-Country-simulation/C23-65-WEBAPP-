@@ -9,6 +9,21 @@ def get_artpiece_styles(artpiece_styles_id: str):
     db = get_mongo_db()
     return db.artpiece_styles.find_one({"_id": artpiece_styles_id})
 
+def get_all_artpiece_styles(
+    skip: int = 0,
+    limit: int = 100,
+    filter_by: dict = None,
+    sort_by: str = None
+):
+    db = get_mongo_db()
+    query = filter_by if filter_by else {}
+    cursor = db.artpiece_styles.find(query).skip(skip).limit(limit)
+
+    if sort_by:
+        cursor = cursor.sort(sort_by)
+
+    return list(cursor)
+
 def update_artpiece_styles(artpiece_styles_id: str, artpiece_styles_data: dict):
     db = get_mongo_db()
     result = db.artpiece_styles.update_one(

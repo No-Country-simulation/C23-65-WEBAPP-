@@ -1,8 +1,15 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from src.services.mysql.profile_service import create_profile, get_profile, update_profile, delete_profile
+from src.services.mysql.profile_service import (
+    create_profile,
+    get_profile,
+    update_profile,
+    delete_profile,
+    get_all_profile
+)
 from src.db.database import get_db
 from pydantic import BaseModel
+from typing import Optional, Dict
 
 router = APIRouter()
 
@@ -25,6 +32,17 @@ def read_profile(profile_id: int, db: Session = Depends(get_db)):
     if profile is None:
         raise HTTPException(status_code=404, detail="Profile not found")
     return profile
+
+# Ruta para obtener todos los likes
+@router.get("/profiles/")
+def read_all_profiles(
+    skip: int = Query(0, description="Número de registros a omitir"),
+    limit: int = Query(100, description="Número máximo de registros a devolver"),
+    filter_by: Optional[Dict[str, str]] = Query(None, description="Filtros para la consulta"),
+    order_by: Optional[str] = Query(None, description="Campo para ordenar los resultados"),
+    db: Session = Depends(get_db)
+):
+    return get_all_profile(db, skip=skip, limit=limit, filter_by=filter_by, order_by=order_by)
 
 @router.put("/profiles/{profile_id}")
 def update_profile_route(profile_id: int, profile_data: ProfileUpdate, db: Session = Depends(get_db)):

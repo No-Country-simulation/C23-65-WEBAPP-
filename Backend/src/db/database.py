@@ -27,11 +27,11 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 # Configuración de MongoDB
-MONGO_DATABASE_URL = (
-    f"mongodb+srv://{os.getenv('MONGO_USER')}:{os.getenv('MONGO_PASS')}@"
-    f"{os.getenv('MONGO_HOST')}/?retryWrites=true&w=majority&appName=pocketmuseum-nocountry"
-)
-mongo_client = MongoClient(MONGO_DATABASE_URL)
+# MONGO_DATABASE_URL = (
+#     f"mongodb+srv://{os.getenv('MONGO_USER')}:{os.getenv('MONGO_PASS')}@"
+#     f"{os.getenv('MONGO_HOST')}/?retryWrites=true&w=majority&appName=pocketmuseum-nocountry"
+# )
+mongo_client = MongoClient('localhost', 27017)
 mongo_db = mongo_client["pocketmuseum"]
 
 # Crear tablas en MySQL (si no existen)

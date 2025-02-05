@@ -9,6 +9,21 @@ def get_archeopiece(archeopiece_id: str):
     db = get_mongo_db()
     return db.archeopiece.find_one({"_id": archeopiece_id})
 
+def get_all_archeopieces(
+    skip: int = 0,
+    limit: int = 100,
+    filter_by: dict = None,
+    sort_by: str = None
+):
+    db = get_mongo_db()
+    query = filter_by if filter_by else {}
+    cursor = db.archeopiece.find(query).skip(skip).limit(limit)
+
+    if sort_by:
+        cursor = cursor.sort(sort_by)
+
+    return list(cursor)
+
 def update_archeopiece(archeopiece_id: str, archeopiece_data: dict):
     db = get_mongo_db()
     result = db.archeopiece.update_one(
