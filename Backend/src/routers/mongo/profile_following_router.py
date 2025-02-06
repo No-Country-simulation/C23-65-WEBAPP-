@@ -25,8 +25,8 @@ def read_profile_following(profile_following_id: str):
     return profile_following
 
 # Ruta para obtener todos los gallery_artpieces
-@router.get("/gallery-artpieces/")
-def read_all_gallery_artpieces(
+@router.get("/profile-followings/")
+def read_all_profile_followings(
     skip: int = Query(0, description="Número de documentos a omitir"),
     limit: int = Query(100, description="Número máximo de documentos a devolver"),
     filter_by: Optional[Dict[str, str]] = Query(None, description="Filtros para la consulta"),
